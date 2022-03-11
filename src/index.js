@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import SeasonDIsplay from "./SeasonDisplay";
 
 // Function Based Component
 // const App = () => {
@@ -21,7 +20,9 @@ import SeasonDIsplay from "./SeasonDisplay";
 
 // Class Based Component version of the App
 class App extends React.Component {
-  render() {
+  constructor(props) {
+    super(props);
+
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         console.log("SUCCESS", position);
@@ -30,6 +31,9 @@ class App extends React.Component {
         console.log("ERROR", err);
       }
     );
+  }
+
+  render() {
     return <div>Latitude:</div>;
   }
 }

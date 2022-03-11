@@ -1,17 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import SeasonDIsplay from "./SeasonDisplay";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// Function Based Component
+// const App = () => {
+//   window.navigator.geolocation.getCurrentPosition(
+//     (position) => {
+//       console.log("SUCCESS", position);
+//     },
+//     (err) => {
+//       console.log("ERROR", err);
+//     }
+//   );
+//   return (
+//     <div>
+//      Latitude:
+//     </div>
+//   );
+// };
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Class Based Component version of the App
+class App extends React.Component {
+  render() {
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log("SUCCESS", position);
+      },
+      (err) => {
+        console.log("ERROR", err);
+      }
+    );
+    return <div>Latitude:</div>;
+  }
+}
+
+ReactDOM.render(<App />, document.querySelector("#root"));

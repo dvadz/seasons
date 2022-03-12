@@ -23,7 +23,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { lat: null, errorMessage: "Oh no!" };
+    this.state = { lat: null, errorMessage: "" };
 
     window.navigator.geolocation.getCurrentPosition(
       (position) => {

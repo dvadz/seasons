@@ -32,7 +32,7 @@ class App extends React.Component {
 
   render() {
     if (this.state.lat && !this.state.errorMessage) {
-      return <div>Latitude: {this.state.lat}</div>;
+      return <SeasonDisplay lat={this.state.lat} />;
     }
     if (this.state && this.state.errorMessage) {
       return (
@@ -43,7 +43,7 @@ class App extends React.Component {
         </div>
       );
     }
-    return <SeasonDisplay lat={this.state.lat} />;
+    return <div>Loading...</div>;
   }
 }
 

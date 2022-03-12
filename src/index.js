@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import SeasonDisplay from "./SeasonDisplay";
 
 // Function Based Component
 // const App = () => {
@@ -42,7 +43,7 @@ class App extends React.Component {
         </div>
       );
     }
-    return <div>Loading...</div>;
+    return <SeasonDisplay lat={this.state.lat} />;
   }
 }
 

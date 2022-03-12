@@ -23,7 +23,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { lat: null, errorMessage: "" };
+    this.state = { lat: null, errorMessage: "Oh no!" };
 
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -36,13 +36,19 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        Latitude: {this.state.lat}
-        <br />
-        Error: {this.state.errorMessage}
-      </div>
-    );
+    if (this.state.lat && !this.state.errorMessage) {
+      return <div>Latitude: {this.state.lat}</div>;
+    }
+    if (this.state && this.state.errorMessage) {
+      return (
+        <div>
+          Latitude: {this.state.lat}
+          <br />
+          Error: {this.state.errorMessage}
+        </div>
+      );
+    }
+    return <div>Loading...</div>;
   }
 }
 
